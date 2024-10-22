@@ -4,8 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    input{
+      -webkit-appearance: none;
+      visibility: hidden;
+      display: none;
+    }
+    .tick{
+      position: relative;
+      display: block;
+      overflow: hidden;
+      height: 20px;
+      width: 40px;
+      background: #333;
+      border-radius: 50px;
+      transition: ease-in 0.5s;
+      cursor: pointer;
+    }
+    .tick::before{
+      content: '';
+      position: absolute;
+      top: 2.5px;
+      left: 2.5px;
+      height: 15px;
+      width: 15px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: 0.5s;
+    }
+    input:checked~ .tick{
+      background: #fff;
+      box-shadow: 0 0 0 1200px;
+    }
+
+    input:checked~ .tick::before {
+      transform: translateX(-50px);
+    }
+  </style>
 </head>
 <body>
-  
+  <label >
+    <input type="checkbox">
+    <span class="tick"></span>
+  </label>
 </body>
 </html>
